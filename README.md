@@ -1,39 +1,44 @@
-# Nvim Configs
+# My Linux Workspace Config
 
-My custom neovim configuration using [NvChad](https://nvchad.com/).
+My custom configuration for my Linux desktop
+workspace. With config files for text editors,
+such as neovim, shells, and more.
+
+## Neovim
+
+Custom config using [NvChad](https://nvchad.com/), with additional bindings and LSP support.
+
+### Customization
+
+- To change or add mappings, do it in the [mappings file](nvim/.config/nvim/lua/mappings.lua).
+
+- To configure the options, do it in the [options file](nvim/.config/nvim/lua/options.lua) 
+
+- To add or remove snippets, do it in the [snippets file](nvim/.config/nvim/lua/snippets.lua).
+
+## Zsh
+
+My Z-shell configuration using [Oh my zsh](https://ohmyz.sh/)
 
 ---
 ## instalation
 
-To use this configuration be sure to have [nvim installed](https://github.com/neovim/neovim/blob/master/INSTALL.md)(version 0.10 or up)
-and all other [NvChad pre-requesites](https://nvchad.com/docs/quickstart/install).
+To use configurations from this repository you can copy the files to their intended location.
+Alternatively, you can use stow to link each config to its intended path, which is the prefered approach. 
 
-Then delete the current nvim config and clone this repository to the config folder.
+## example
 
-- Windows:
-    - powershell:
+First be sure to have GNU stow installed.
 
-        ```
-        git clone https://github.com/lucasmabf/nvim $ENV:USERPROFILE\AppData\Local\nvim
-        ```
+Then, you can just run the following command on the root of the repository, to apply neovim's configuration.
 
-    - cmd:
+```
+stow nvim
+```
 
-        ```
-        git clone https://github.com/lucasmabf/nvim %USERPROFILE%\AppData\Local\nvim
-        ```
-
-- Linux:
-    ```
-    git clone https://github.com/lucasmabf/nvim ~/.config/nvim
-    ```
+That should link the configuration to the correct path. You can do the 
+same for any other config in this repository - just use the name of the file
+that contains the configuration.
 
 ---
-## Customization
-
-- To change or add mappings, do it in the [mappings file](lua/mappings.lua).
-
-- To configure the options, do it in the [options file](lua/options.lua) 
-
-- To add or remove snippets, do it in the [snippets file](lua/snippets.lua).
     

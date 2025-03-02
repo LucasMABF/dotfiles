@@ -21,6 +21,7 @@ return {
   			"vim", "lua", "vimdoc",
         "html", "css", "rust", "c",
         "markdown", "markdown_inline",
+        "typescript", "javascript", "tsx",
         "diff", "asm", "bash", "powershell" -- diff for telescope commits 
   		},
       silent = true,
@@ -52,6 +53,18 @@ return {
       require('cmp').setup.buffer({
         sources = {{name = 'crates'}}
       })
+    end
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    },
+    config = function ()
+      require('nvim-ts-autotag').setup();
     end
   },
 }

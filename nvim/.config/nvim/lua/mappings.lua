@@ -34,26 +34,6 @@ unmap("n", "<leader>/")
 unmap("n", "<leader>cm")
 
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    vim.schedule(function()
-      if not args.file:match([[%.rs$]]) then
-
-        unmap('n', '<leader>ra', {buffer = args.buf})
-        unmap('n', '<leader>sh', {buffer = args.buf})
-        unmap('n', '<leader>D', {buffer = args.buf})
-        unmap("n", "<leader>wa", {buffer = args.buf})
-        unmap("n", "<leader>wl", {buffer = args.buf})
-        unmap("n", "<leader>wr", {buffer = args.buf})
-        unmap("n", "<leader>ca", {buffer = args.buf})
-      end
-
-      map("n", "<leader>LD", vim.lsp.buf.type_definition, {buffer = args.buf, desc = "Go to Type Definition"})
-      map("n", "<leader>Lca", vim.lsp.buf.code_action, {buffer = args.buf, desc = "LSP code actions"})
-    end)
-  end
-})
-
 require("gitsigns").setup{
   on_attach = function(bufnr)
     map('n', '<leader>gd', package.loaded.gitsigns.reset_hunk, {buffer = bufnr, desc = "Discard Hunk change"})
@@ -64,7 +44,6 @@ require("gitsigns").setup{
 
 
 -- custom mapings
-map("n", "<leader>n", "<cmd>enew<CR>", {desc = "buffer new"})
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 map("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
@@ -102,6 +81,7 @@ map("n", "<leader>w<", '<C-w><', {desc = "decrease width split"})
 map("n", "<C-d>", '<C-d>zz', {desc = "jumps half a page down"})
 map("n", "<C-u>", '<C-u>zz', {desc = "jumps half a page up"})
 map("n", "<leader>Ld", vim.diagnostic.setloclist, {desc = "LSP Diagnostic loclist"})
+map("n", "<leader>nrl", "<cmd>!npm run lint<CR>", {desc = "lints with eslint"});
 
 map("v", "J", ":m '>+1<CR>gv=gv", {desc = "moves selected text down"})
 map("v", "K", ":m '<-2<CR>gv=gv", {desc = "moves selected text down"})
@@ -109,4 +89,4 @@ map("n", "J", "mzJ`z", {desc = "keeps cursor on same position on J"})
 map("n", "<leader>d", '"_d', {desc = "deletes without saving to register"})
 map("v", "<leader>d", '"_d', {desc = "deletes without saving to register"})
 map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {desc = "replaces word on cursor"})
-
+map("v", "<leader>r", [["0y:%s/<C-r>0/<C-r>0/gI<Left><Left><Left>]], {desc = "replaces selected text"})
