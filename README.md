@@ -42,3 +42,23 @@ that contains the configuration.
 
 ---
     
+## References
+
+- typecraft
+
+    - [YouTube](https://www.youtube.com/@typecraft_dev)
+
+    - [Hyprland Playlist](https://www.youtube.com/playlist?list=PLsz00TDipIfeDrFeSA56W1wPrYYg_Kd-b)
+
+    - [Neovim Playlist](https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn)
+
+    -[GitHub Repo](https://github.com/typecraft-dev/dotfiles/blob/master/hyprland/.config/hypr/hypridle.conf)
+
+- [Hyprland Wiki](https://wiki.hyprland.org/)
+
+- [NvChad Docs](https://nvchad.com/docs/quickstart/install)
+
+- [catppuccin](https://catppuccin.com/)
+
+- [wallpapers](https://github.com/orangci/walls-catppuccin-mocha)
+
