@@ -52,7 +52,7 @@ that contains the configuration.
 
     - [Neovim Playlist](https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn)
 
-    -[GitHub Repo](https://github.com/typecraft-dev/dotfiles/blob/master/hyprland/.config/hypr/hypridle.conf)
+    - [GitHub Repo](https://github.com/typecraft-dev/dotfiles/blob/master/hyprland/.config/hypr/hypridle.conf)
 
 - [Hyprland Wiki](https://wiki.hyprland.org/)
 
