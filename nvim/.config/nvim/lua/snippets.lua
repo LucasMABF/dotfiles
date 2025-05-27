@@ -2,8 +2,10 @@ local ls = require "luasnip"
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("c", {
-  ls.snippet("!", fmt(
-    [[
+  ls.snippet(
+    "!",
+    fmt(
+      [[
     #include <stdio.h>
 
     int main(){{
@@ -12,8 +14,8 @@ ls.add_snippets("c", {
       return 0;
     }}
 
-    ]], {ls.insert_node(0)}
-  )),
+    ]],
+      { ls.insert_node(0) }
+    )
+  ),
 })
-
-
