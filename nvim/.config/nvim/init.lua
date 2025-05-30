@@ -31,8 +31,16 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "snippets"
 require "options"
-require "nvchad.autocmds"
+require "autocmds"
 
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.ui.select = function(...)
+  -- Load Telescope and ui-select extension
+  require("lazy").load { plugins = { "telescope.nvim" } }
+
+  -- After loading, forward the call to the actual Telescope-powered select
+  vim.ui.select(...)
+end

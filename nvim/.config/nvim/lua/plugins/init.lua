@@ -1,5 +1,25 @@
 return {
   {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    opts = {
+      on_attach = function(bufnr)
+        require("configs.nvimtree").my_on_attach(bufnr)
+      end,
+    },
+  },
+  {
+    "folke/which-key.nvim",
+    keys = { "<leader>", "<c-w>", '"', "'", "`", "c", "v", "g" },
+    cmd = "WhichKey",
+    opts = {
+      keys = {
+        scroll_down = "<C-j>",
+        scroll_up = "<C-k>",
+      },
+    },
+  },
+  {
     "stevearc/conform.nvim",
     opts = require "configs.conform",
   },
@@ -9,7 +29,6 @@ return {
       require "configs.lspconfig"
     end,
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -36,6 +55,19 @@ return {
     },
   },
   {
+    "nvim-telescope/telescope-ui-select.nvim",
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    cmd = "Telescope",
+    config = function()
+      require "configs.telescope"
+    end,
+  },
+  {
     "mrcjkb/rustaceanvim",
     version = "^5", -- Recommended
     lazy = false, -- This plugin is already lazy
@@ -46,19 +78,15 @@ return {
   },
   {
     "saecki/crates.nvim",
-    ft = { "toml" },
-    config = function()
-      require("crates").setup {
-        completion = {
-          cmp = {
-            enabled = true,
-          },
-        },
-      }
-      require("cmp").setup.buffer {
-        sources = { { name = "crates" } },
-      }
-    end,
+    event = "BufRead Cargo.toml",
+    opts = {
+      lsp = {
+        enabled = true,
+        actions = true,
+        completion = true,
+        hover = true,
+      },
+    },
   },
   {
     "windwp/nvim-ts-autotag",
@@ -83,5 +111,43 @@ return {
   },
   {
     import = "nvchad.blink.lazyspec",
+  },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      sources = {
+        providers = {
+          path = {
+            enabled = function()
+              return vim.bo.filetype ~= "copilot-chat"
+            end,
+          },
+        },
+      },
+    },
+  },
+  {
+    "github/copilot.vim",
+    cmd = "Copilot",
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    cmd = "CopilotChatToggle",
+    dependencies = {
+      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+    },
+    opts = {
+      mappings = {
+        accept_diff = {
+          normal = "<leader>gy",
+          insert = "<C-y>",
+        },
+        close = {
+          normal = "<leader>x",
+          insert = "<C-c>",
+        },
+      },
+    },
   },
 }

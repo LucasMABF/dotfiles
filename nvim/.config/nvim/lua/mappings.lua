@@ -94,6 +94,7 @@ map("n", "<leader>d", '"_d', { desc = "deletes without saving to register" })
 map("v", "<leader>d", '"_d', { desc = "deletes without saving to register" })
 map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "replaces word on cursor" })
 map("v", "<leader>r", [["0y:%s/<C-r>0/<C-r>0/gI<Left><Left><Left>]], { desc = "replaces selected text" })
+map("n", "<leader>Lq", ":copen<CR>", { desc = "Open quick fix list" })
 
 if vim.lsp.inlay_hint then
   map("n", "<leader>i", function()
@@ -113,5 +114,23 @@ vim.api.nvim_create_user_command("Format", function(args)
   require("conform").format { async = true, lsp_format = "fallback", range = range }
 end, { range = true })
 
-map("n", "<leader>m", ":Format<CR>", { desc = "format current file" })
-map("v", "<leader>m", ":Format<CR>", { desc = "format current selection" })
+map("n", "<leader>m", ":Format<CR>", { desc = "Format current file" })
+map("v", "<leader>m", ":Format<CR>", { desc = "Format current selection" })
+
+map("n", "<leader>o", function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle diagnostics." })
+
+map("n", "<leader>G", function()
+  vim.cmd "silent Copilot"
+  vim.g.copilot_enabled = not vim.g.copilot_enabled
+end, { desc = "Toggle GitHub Copilot suggestions" })
+
+vim.g.copilot_no_tab_map = true
+map("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+  desc = "Accept Copilot suggestion",
+})
+
+map("n", "<leader>C", ":CopilotChatToggle<CR>", { desc = "Toggle Copilot Chat" })
