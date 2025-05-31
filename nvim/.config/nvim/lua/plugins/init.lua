@@ -137,17 +137,8 @@ return {
       { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
     },
-    opts = {
-      mappings = {
-        accept_diff = {
-          normal = "<leader>gy",
-          insert = "<C-y>",
-        },
-        close = {
-          normal = "<leader>x",
-          insert = "<C-c>",
-        },
-      },
-    },
+    opts = function()
+      return require "configs.copilot-chat"
+    end,
   },
 }
