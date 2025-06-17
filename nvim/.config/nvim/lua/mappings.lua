@@ -37,6 +37,8 @@ require("gitsigns").setup {
     map("n", "<leader>gd", package.loaded.gitsigns.reset_hunk, { buffer = bufnr, desc = "Discard Hunk change" })
     map("n", "<leader>gp", package.loaded.gitsigns.preview_hunk, { buffer = bufnr, desc = "Preview Hunk" })
     map("n", "<leader>gb", package.loaded.gitsigns.blame_line, { buffer = bufnr, desc = "Blame Line" })
+    map("n", "<leader>gn", package.loaded.gitsigns.next_hunk, {buffer = bufnr, desc = "Jump to next Hunk"})
+    map("n", "<leader>gN", package.loaded.gitsigns.prev_hunk, {buffer = bufnr, desc = "Jump to previous Hunk"})
   end,
 }
 
@@ -58,10 +60,10 @@ vim.api.nvim_create_user_command("Themes", function()
 end, {})
 
 map("n", "<leader>t", function()
-  require("nvchad.term").toggle { pos = "sp", id = "vtoggleTerm", size = 0.5 }
-end, { desc = "terminal new horizontal term" })
+  require("nvchad.term").toggle { pos = "bo sp", id = "vtoggleTerm", size = 0.5 }
+end, { desc = "Open terminal" })
 
-map("t", "jk", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map("t", "jk", "<C-\\><C-N>", { desc = "escape terminal mode" })
 
 map("n", "<leader>h", "<C-w>h", { desc = "switch window left" })
 map("n", "<leader>l", "<C-w>l", { desc = "switch window right" })
@@ -85,7 +87,6 @@ map("n", "<leader>w<", "<C-w><", { desc = "decrease width split" })
 map("n", "<C-d>", "<C-d>zz", { desc = "jumps half a page down" })
 map("n", "<C-u>", "<C-u>zz", { desc = "jumps half a page up" })
 map("n", "<leader>Ld", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
-map("n", "<leader>nrl", "<cmd>!npm run lint<CR>", { desc = "lints with eslint" })
 
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "moves selected text down" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves selected text down" })
@@ -134,3 +135,14 @@ map("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
 })
 
 map("n", "<leader>C", ":CopilotChatToggle<CR>", { desc = "Toggle Copilot Chat" })
+
+map("n", "<leader>I", function()
+  local snacks = require "snacks"
+  snacks.image.hover()
+  map("n", "<Esc>", function()
+    vim.cmd "noh"
+    snacks.image.doc.hover_close()
+    map("n", "<Esc>", "<cmd>noh<CR>", { buffer = 0, desc = "general clear highlights" })
+  end, { buffer = 0, nowait = true, silent = true })
+end, { desc = "Show image under cursor" })
+
