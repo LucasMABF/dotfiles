@@ -22,3 +22,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>x", ":q<CR>", { buffer = 0, desc = "Close Diagnostic Loclist" })
   end,
 })
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    if
+      require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+      and not require("luasnip").session.jump_active
+    then
+      require("luasnip").unlink_current()
+    end
+  end,
+})

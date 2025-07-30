@@ -79,6 +79,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 bindkey -v
+bindkey '^j' autosuggest-accept
 
 zstyle :compinstall filename '/home/lucas/.zshrc'
 

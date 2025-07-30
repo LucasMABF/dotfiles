@@ -43,6 +43,9 @@ General instructions:
 
 return {
   mappings = {
+    toggle_sticky = {
+      normal = '<Tab>',
+    },
     accept_diff = {
       normal = "<leader>gy",
       insert = "<C-y>",
