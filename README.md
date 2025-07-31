@@ -25,6 +25,7 @@ My Z-shell configuration using [Oh my zsh](https://ohmyz.sh/)
 
 To use configurations from this repository you can copy the files to their intended location.
 Alternatively, you can use stow to link each config to its intended path, which is the prefered approach. 
+You should also choose a theme using the instructions below, otherwise some programms might not work as expected.
 
 ## example
 
@@ -33,12 +34,18 @@ First be sure to have GNU stow installed.
 Then, you can just run the following command on the root of the repository, to apply neovim's configuration.
 
 ```
-stow nvim
+stow nvim --no-folding
 ```
 
 That should link the configuration to the correct path. You can do the 
 same for any other config in this repository - just use the name of the file
 that contains the configuration.
+
+- note: `--no-folding` can prevent some bugs, specially when using the theme_picker.
+
+## Themes
+
+To change the theme, use the script `theme_picker.py`, or the keybind `SUPER + W`.
 
 ---
     
@@ -60,5 +67,8 @@ that contains the configuration.
 
 - [catppuccin](https://catppuccin.com/)
 
-- [wallpapers](https://github.com/orangci/walls-catppuccin-mocha)
+- [catppuccin wallpapers](https://github.com/orangci/walls-catppuccin-mocha)
 
+- [Xakak's dotfiles](https://github.com/Xakak/dotfiles)
+
+- [nordic wallpapers](https://github.com/linuxdotexe/nordic-wallpapers)

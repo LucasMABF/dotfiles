@@ -28,7 +28,7 @@ vim.lsp.config("*", { capabilities = nvlsp.capabilities, on_init = nvlsp.on_init
 vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
 vim.lsp.enable "lua_ls"
 
-local servers = { "html", "cssls", "ts_ls", "prismals", "eslint", "tailwindcss" } -- lua already setup and rust set up separetely
+local servers = { "html", "cssls", "ts_ls", "prismals", "eslint", "tailwindcss", "pylsp" } -- lua already setup and rust set up separetely
 
 vim.lsp.enable(servers)
 
