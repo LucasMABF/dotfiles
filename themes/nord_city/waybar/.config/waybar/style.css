@@ -1,0 +1,137 @@
+@import "nord.css"; 
+
+* {
+    font-family: "MesloLGS Nerd Font Mono Bold";
+    font-size: 16px;
+    min-height: 0;
+    font-weight: bold;
+}
+
+window#waybar {
+    background: transparent;
+    background-color: @crust;
+    color: @overlay0;
+    transition-property: background-color;
+    transition-duration: 0.1s;
+    border-bottom: 1px solid @overlay1;
+}
+
+#window {
+    margin: 8px;
+    padding-left: 8;
+    padding-right: 8;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+    color: @teal;
+    border-top: 2px solid @teal;
+}
+
+#workspaces button {
+    padding: 0 4px;
+}
+
+#workspaces button.focused {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: @sky;
+    border-top: 2px solid @sky;
+}
+
+#workspaces button.active {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: @teal;
+    border-top: 2px solid @teal;
+}
+
+#workspaces button.urgent {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: @red;
+    border-top: 2px solid @red;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: @lavender;
+    border-top: 2px solid @lavender;
+}
+
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#workspaces,
+#window,
+#temperature {
+    background-color: @surface0;
+    padding: 0 8px;
+    margin: 6px 0;
+    margin-top: 10px;
+    border: 1px solid @overlay0;
+}
+
+#temperature {
+    border-radius: 10px 0px 0px 10px;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#workspaces {
+    border-radius: 10px;
+}
+
+#window {
+    border-radius: 10px;
+}
+
+#clock {
+    color: @blue;
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 10px;
+}
+
+#battery {
+    color: @green;
+    border-radius: 0 0 0 0;
+}
+
+#battery.charging, #battery.plugged {
+    color: @green;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @crust;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+    color: @peach;
+    border-radius: 0 0 0 0;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#pulseaudio {
+    color: @yellow;
+    border-radius: 10px 0 0 10px;
+    margin-left: 10px;
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
