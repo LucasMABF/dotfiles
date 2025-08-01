@@ -50,14 +50,28 @@ for config in configs:
     ])
 
 
-subprocess.run(["spicetify", "apply"], stdout=subprocess.DEVNULL)
+try:
+    subprocess.run(["spicetify", "apply"], stdout=subprocess.DEVNULL)
+except FileNotFoundError:
+    print("spicetify command not found. Spotify not updated.")
 
-subprocess.run(["hyprctl", "hyprpaper", "reload", ", ",
-               str(Path.home() / ".config/wallpapers" / f"{theme}.png")],
-               stdout=subprocess.DEVNULL)
+try:
+    subprocess.run(["hyprctl", "hyprpaper", "reload", ", ",
+                   str(Path.home() / ".config/wallpapers" / f"{theme}.png")],
+                   stdout=subprocess.DEVNULL)
+except FileNotFoundError:
+    print("hyprctl hyprpaper command not found. Wallpaper not updated.")
 
-subprocess.run(["hyprctl", "reload"], stdout=subprocess.DEVNULL)
 
-subprocess.run(["nvim", "--headless", "-c",
-                'lua require("base46").load_all_highlights()',
-                "-c", "qa"])
+try:
+    subprocess.run(["hyprctl", "reload"], stdout=subprocess.DEVNULL)
+except FileNotFoundError:
+    print("hyprctl reload command not found. Hyprland not updated.")
+
+
+try:
+    subprocess.run(["nvima", "--headless", "-c",
+                    'lua require("base46").load_all_highlights()',
+                    "-c", "qa"])
+except FileNotFoundError:
+    print("nvim command not found. Neovim not updated.")
