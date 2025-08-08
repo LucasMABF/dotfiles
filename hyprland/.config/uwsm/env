@@ -1,5 +1,4 @@
-export HYPRCURSOR_THEME=catppuccin-mocha-dark-cursors 
-export HYPRCURSOR_SIZE=28
 export LIBVA_DRIVER_NAME=nvidia
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
+source ~/.config/uwsm/env-theme

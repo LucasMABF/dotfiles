@@ -1,0 +1,255 @@
+@import url("theme.css");
+
+* {
+  font-family: "Hack Nerd Font";
+  font-size: 14px;
+}
+
+.close-button {
+  /* The notification Close Button */
+  background: var(--red);
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+  border-radius: 6.3px;
+  min-width: 24px;
+  min-height: 24px;
+  margin: 7px;
+  padding: 2px;
+}
+
+.close-button:hover {
+  background: var(--red-hover);
+  box-shadow: none;
+  border: none;
+  transition: background 0.15s ease-in-out;
+}
+
+.notification-row {
+  background: none;
+  outline: none;
+}
+
+.notification-row:focus {
+  background: none;
+}
+
+.floating-notifications .notification-row .notification-background {
+  background: none;
+  border-radius: 12.6px;
+  margin: 5px;
+  padding: 0;
+}
+
+.control-center .notification-row .notification-background {
+  background: none;
+  border-radius: 7px;
+  margin-top: 5px;
+  padding: 0;
+}
+
+.floating-notifications .notification-row .notification-background .notification {
+  background: var(--bg-opaque);
+  box-shadow: inset 0 0 0 1px #313244;
+  border: 3px solid var(--border);
+  border-radius: 12.6px;
+  transition: var(--hover-tranistion);
+  padding: 7px;
+}
+
+.control-center .notification-row .notification-background .notification {
+  background: var(--bg);
+  border-radius: 12.6px;
+  border: 3px solid var(--border);
+  transition: var(--hover-tranistion);
+  padding: 7px;
+  margin-bottom: 5px;
+}
+
+.floating-notifications .notification-row .notification-background .notification.notification.critical {
+  box-shadow: inset 0 0 7px 0 var(--red);
+}
+
+.notification .summary {
+  margin-bottom: 2px;
+}
+
+.notification-row .notification-background .notification.critical .summary {
+  color: var(--red);
+}
+
+.notification-row .notification-background .notification .notification-default-action:hover {
+  -gtk-icon-filter: none;
+  background: transparent;
+}
+
+.notification-group:focus {
+  background: none;
+}
+
+.notification-group .notification-group-buttons,
+.notification-group .notification-group-headers {
+  margin: 8px 16px;
+}
+
+.notification-group .notification-group-headers .notification-group-icon {
+  color: var(--text);
+}
+
+.notification-group .notification-group-headers .notification-group-header {
+  color: var(--text);
+}
+
+.notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
+   background-color: var(--light);
+}
+
+.control-center {
+  background: var(--bg-opaque);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #313244;
+  border-radius: 12.6px;
+  border: 3px solid var(--border);
+  color: var(--text);
+  margin: 5px;
+  padding: 0px;
+}
+
+.control-center .control-center-list .notification {
+  box-shadow: none;
+}
+
+/*** Widgets ***/
+
+/* Title widget */
+.control-center .widget-title > label {
+  color: var(--text);
+  font-size: 1.3em;
+}
+
+.widget-title>button {
+  background-color: transparent;
+  border-radius: 7px;
+  margin-left: 8px;
+  padding: 8px;
+}
+
+.widget-title>button:disabled {
+  color: var(--disabled);
+}
+
+.widget-title>button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.widget-title>button:active {
+  background-color: var(--border);
+}
+
+/* DND widget */
+.widget-dnd label {
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.widget-dnd switch {
+  background: var(--dark);
+}
+
+.widget-dnd switch:checked {
+  background: var(--border);
+}
+
+.widget-dnd switch slider {
+  background: var(--slider);
+}
+
+/* Label widget */
+.widget-label>label {
+  font-size: 2rem;
+}
+
+through highlight {
+  background: var(--bg);
+}
+
+scale through {
+  background: var(--dark);
+  min-height: 8px;
+  min-width: 70px;
+}
+
+slider {
+  background-color: var(--slider);
+}
+
+.time {
+  color: var(--disabled);
+}
+
+.notification-group {
+  all: unset;
+  background: transparent;
+}
+
+.notification-group .notification-group-close-button .close-button {
+  margin: 20px;
+}
+
+.widget-volume label {
+  font-size: 1.5rem;
+  color: var(--border);
+}
+
+.per-app-volume label {
+  font-size: 15px;
+  color: var(--disabled);
+  padding: 0;
+  margin: 0;
+}
+
+.per-app-volume .activatable {
+  background: transparent;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-backlight label {
+  font-size: 1.5rem;
+  color: var(--border);
+}
+
+.widget-label {
+  margin-bottom: 0;
+}
+
+.widget-volume {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.widget-backlight {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.widget-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.widget-dnd {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.widget-mpris {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.widget-notifications {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+

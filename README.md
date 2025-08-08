@@ -1,20 +1,44 @@
 # My Linux Workspace Config
 
-My custom configuration for my Linux desktop
-workspace. With config files for text editors,
-such as neovim, shells, and more.
+My personal configuration setup for my Linux desktop environment.
+Including config files for my window manager (Hyprland),
+Neovim setup, shells, and various desktop tools. 
+
+## Hyprland and desktop apps
+
+Configuration for the Hyprland window manager and tools from the ecosystem,
+including hyprpaper, hypridle and hyprlock. 
+This setup also includes configuration for commonly used applications, such as
+waybar, rofi, kitty, swaync and spicetify.
+
+> **Note**: This config is designed to work with uwsm-managed sessions, and may require some
+> adjustments for all features to work properly without it.
+
+### Themes
+
+The config includes different desktop themes, which can be added, removed, or switched easily:
+
+- To add a theme make a folder inside the [themes directory](themes/)
+- To switch themes, use the `theme_picker.py` script, or the keybind `SUPER SHIFT + T`.
+
+There are also themes for firefox in [firefox_colors/themes.md](firefox_colors/themes.md).
 
 ## Neovim
 
-Custom config using [NvChad](https://nvchad.com/), with additional bindings and LSP support.
+Custom config using [NvChad](https://nvchad.com/), with additional bindings and plugins
 
 ### Customization
 
-- To change or add mappings, do it in the [mappings file](nvim/.config/nvim/lua/mappings.lua).
+- Modify key mappings in [mappings.lua](nvim/.config/nvim/lua/mappings.lua)
+- Configure options in [options.lua](nvim/.config/nvim/lua/options.lua)
+- Configure LSPs in [lspconfig.lua](nvim/.config/nvim/lua/configs/lspconfig.lua)
+- Add or remove plugins in [plugins/init.lua](nvim/.config/nvim/lua/plugins/init.lua)
+- Set the theme in [chadrc.lua](nvim/.config/nvim/lua/chadrc.lua), or 
+run the `:Themes` command
 
-- To configure the options, do it in the [options file](nvim/.config/nvim/lua/options.lua) 
-
-- To add or remove snippets, do it in the [snippets file](nvim/.config/nvim/lua/snippets.lua).
+> **Note**: The `chadrc.lua` file is located in the themes directory because it is managed
+> by the repo's theme functionality.
+> It can be moved to the `nvim` folder if the theme functionality is not being used
 
 ## Zsh
 
@@ -23,11 +47,11 @@ My Z-shell configuration using [Oh my zsh](https://ohmyz.sh/)
 ---
 ## instalation
 
-To use configurations from this repository you can copy the files to their intended location.
-Alternatively, you can use stow to link each config to its intended path, which is the prefered approach. 
-You should also choose a theme using the instructions below, otherwise some programms might not work as expected.
+To use the configurations from this repository, you can copy the files to their intended locations.
+Alternatively, you can use `stow` to symlink each config to its proper path, which is the preferred approach. 
+You should also choose a desktop theme following the instructions above, as some programs might not work as expected without it.
 
-## example
+### example
 
 First be sure to have GNU stow installed.
 
@@ -41,11 +65,13 @@ That should link the configuration to the correct path. You can do the
 same for any other config in this repository - just use the name of the file
 that contains the configuration.
 
-- note: `--no-folding` can prevent some bugs, specially when using the theme_picker.
+> **note**: `--no-folding` can prevent some bugs, specially when using the theme_picker.
 
-## Themes
+## Screenshots
 
-To change the theme, use the script `theme_picker.py`, or the keybind `SUPER + W`.
+![catppuccin tiling](screenshots/catppuccin2.png)
+
+![mojave floating](screenshots/mojave1.png)
 
 ---
     
@@ -59,7 +85,7 @@ To change the theme, use the script `theme_picker.py`, or the keybind `SUPER + W
 
     - [Neovim Playlist](https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn)
 
-    - [GitHub Repo](https://github.com/typecraft-dev/dotfiles/blob/master/hyprland/.config/hypr/hypridle.conf)
+    - [GitHub Repo](https://github.com/typecraft-dev/dotfiles/)
 
 - [Hyprland Wiki](https://wiki.hyprland.org/)
 
@@ -72,3 +98,15 @@ To change the theme, use the script `theme_picker.py`, or the keybind `SUPER + W
 - [Xakak's dotfiles](https://github.com/Xakak/dotfiles)
 
 - [nordic wallpapers](https://github.com/linuxdotexe/nordic-wallpapers)
+
+- [NelloKudo's dotfiles](https://github.com/NelloKudo/hyprnord-dots/)
+
+- [Nordzy-cursors](https://github.com/guillaumeboehm/Nordzy-cursors/)
+
+- [Spicetify comfy theme](https://github.com/Comfy-Themes/Spicetify/)
+
+- [Colloig gtk theme](https://github.com/vinceliuice/Colloid-gtk-theme)
+
+- [NordArc gtk icons](https://github.com/robertovernina/NordArc)
+
+- [gre0ut's dotfiles](https://github.com/grey0ut/dotfiles/)

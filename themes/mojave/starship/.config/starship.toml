@@ -1,0 +1,163 @@
+format = """
+[](#4c566a)\
+$os\
+$username\
+[](bg:#434C5E fg:#4c566a)\
+$directory\
+[](fg:#434C5E bg:#4C566A)\
+$git_branch\
+$git_status\
+[](fg:#4C566A bg:#88c0d0)\
+$c\
+$rust\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:#88c0d0 bg:#5e81ac)\
+$docker_context\
+[](fg:#5e81ac bg:#88c0d0)\
+$time\
+[ ](fg:#88c0d0)\
+$line_break$character"""
+
+command_timeout = 5000
+# Disable the blank line at the start of the prompt
+# add_newline = false
+# [character]
+# success_symbol = '[❯](bold blue)'
+# error_symbol = '[✗](bold red)'
+
+[character]
+disabled = false
+success_symbol = '[](bold blue)'
+error_symbol = '[](bold red)'
+vimcmd_symbol = '[](bold blue)'
+vimcmd_replace_one_symbol = '[](bold blue)'
+vimcmd_replace_symbol = '[](bold blue)'
+vimcmd_visual_symbol = '[](bold blue)'
+
+# You can also replace your username with a neat symbol like  to save some space
+[username]
+show_always = false
+style_user = "bg:#4c566a"
+style_root = "bg:#4c566a"
+format = '[ $user ]($style)'
+detect_env_vars = ['!TMUX']
+
+[directory]
+style = "bg:#434C5E"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+#"GitHub" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[c]
+symbol = " "
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = " "
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:#4C566A"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#4C566A"
+format = '[$all_status$ahead_behind ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = " "
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ""
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#86BBD8 fg:#434C5E"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "fg:#434C5E bg:#88c0d0"
+format = '[ $time ]($style)'
+
+[os]
+disabled = false
+style = "bg:#4c566a"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"

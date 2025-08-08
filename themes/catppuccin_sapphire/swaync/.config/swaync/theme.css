@@ -1,0 +1,12 @@
+:root {
+  --bg: rgb(30, 30, 46);
+  --bg-opaque: rgba(30, 30, 46, 0.9);
+  --border: rgb(116, 199, 236);
+  --light: rgb(40, 40, 62);
+  --dark: rgb(49, 50, 68);
+  --red: rgb(243, 139, 168);
+  --red-hover: rgb(235, 160, 172);
+  --text: rgb(205, 214, 244);
+  --disabled: rgb(166, 173, 200);
+  --slider: rgb(69, 71, 90);
+}

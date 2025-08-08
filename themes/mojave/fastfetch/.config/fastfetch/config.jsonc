@@ -1,0 +1,49 @@
+{
+    "logo": {
+        "source": "arch_small",
+        "width": 22,
+        "height": 13,  
+        "padding": {
+            "top": 1,
+            "right": 4
+        }
+    },
+    "display": {
+        "separator": " "
+    },
+    "modules": [
+		"break",
+	{
+            "type": "title",
+            "keyWidth": 10
+        },
+        "break",
+        {
+            "type": "os",
+            "key": " ",
+            "keyColor": "36"
+        },
+        {
+            "type": "shell",
+            "key": " ",
+            "keyColor": "32"
+        },
+        {
+            "type": "wm",
+            "key": " ",
+            "keyColor": "34"
+        },
+        {
+            "type": "uptime",
+            "key": " ",
+            "keyColor": "31"
+        },
+        {
+            "type": "media",
+            "key": "󰝚 ",
+            "keyColor": "36"
+        },
+        "break",
+        "colors"
+    ]
+}

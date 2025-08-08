@@ -3,6 +3,7 @@
 from pathlib import Path
 import subprocess
 import sys
+import os
 
 
 if len(sys.argv) > 1:
@@ -56,21 +57,51 @@ except FileNotFoundError:
     print("spicetify command not found. Spotify not updated.")
 
 try:
+    subprocess.run(["nwg-look", "-a", "-x"], stdout=subprocess.DEVNULL)
+    subprocess.run(["pkill", "nautilus"], stdout=subprocess.DEVNULL)
+except FileNotFoundError:
+    print("nwg-look command not found. GTK not updated.")
+
+try:
     subprocess.run(["hyprctl", "hyprpaper", "reload", ", ",
                    str(Path.home() / ".config/wallpapers" / f"{theme}.png")],
                    stdout=subprocess.DEVNULL)
 except FileNotFoundError:
     print("hyprctl hyprpaper command not found. Wallpaper not updated.")
 
+try:
+    env_file = Path.home() / ".config/uwsm/env-theme"
+    cursor_settings = []
+    with open(env_file) as f:
+        for line in f:
+            key_value = line.strip().split(" ", 1)[1]
+            key, value = key_value.split("=", 1)
+            cursor_settings.append(value.strip())
+
+    subprocess.run(["hyprctl", "setcursor", cursor_settings[0],
+                    cursor_settings[1]], stdout=subprocess.DEVNULL)
+except FileNotFoundError:
+    print("hyprctl setcursor command not found. Cursor not updated.")
 
 try:
     subprocess.run(["hyprctl", "reload"], stdout=subprocess.DEVNULL)
 except FileNotFoundError:
     print("hyprctl reload command not found. Hyprland not updated.")
 
+try:
+    subprocess.run(["pkill", "waybar"], stdout=subprocess.DEVNULL)
+    subprocess.Popen(["waybar"], stdout=subprocess.DEVNULL, env=os.environ)
+except FileNotFoundError:
+    print("waybar command not found. Waybar not updated.")
 
 try:
-    subprocess.run(["nvima", "--headless", "-c",
+    subprocess.run(["pkill", "swaync"], stdout=subprocess.DEVNULL)
+    subprocess.Popen(["swaync"], stdout=subprocess.DEVNULL)
+except FileNotFoundError:
+    print("swaync command not found. Swaync not updated.")
+
+try:
+    subprocess.run(["nvim", "--headless", "-c",
                     'lua require("base46").load_all_highlights()',
                     "-c", "qa"])
 except FileNotFoundError:
