@@ -1,0 +1,119 @@
+@define-color	polar_night_0  #2e3440;
+@define-color	polar_night_0_rgb  rgb(46, 52, 64);
+@define-color	polar_night_1  #3b4252;
+@define-color	polar_night_1_rgb  rgb(59, 66, 82);
+@define-color	polar_night_2  #434c5e;
+@define-color	polar_night_2_rgb  rgb(67, 76, 94);
+@define-color	polar_night_3  #4c566a;
+@define-color	polar_night_3_rgb  rgb(76, 86, 106);
+@define-color	snow_storm_0  #d8dee9;
+@define-color	snow_storm_0_rgb  rgb(216, 222, 233);
+@define-color	snow_storm_1  #e5e9f0;
+@define-color	snow_storm_1_rgb  rgb(229, 233, 240);
+@define-color	snow_storm_2  #eceff4;
+@define-color	snow_storm_2_rgb  rgb(236, 239, 244);
+@define-color	frost_0  #8fbcbb;
+@define-color	frost_0_rgb  rgb(143, 188, 187);
+@define-color	frost_1  #88c0d0;
+@define-color	frost_1_rgb  rgb(136, 192, 208);
+@define-color	frost_2  #81a1c1;
+@define-color	frost_2_rgb  rgb(129, 161, 193);
+@define-color	frost_3  #5e81ac;
+@define-color	frost_3_rgb  rgb(94, 129, 172);
+@define-color	aurora_red  #bf616a;
+@define-color	aurora_red_rgb  rgb(191, 97, 106);
+@define-color	aurora_orange  #d08770;
+@define-color	aurora_orange_rgb  rgb(208, 135, 112);
+@define-color	aurora_yellow  #ebcb8b;
+@define-color	aurora_yellow_rgb  rgb(235, 203, 139);
+@define-color	aurora_green  #a3be8c;
+@define-color	aurora_green_rgb  rgb(163, 190, 140);
+@define-color	aurora_purple  #b48ead;
+@define-color	aurora_purple_rgb  rgb(180, 142, 173);
+
+* {
+  font-family: 'CaskaydiaCove Nerd Font', monospace;
+  font-size: 18px;
+}
+
+/* Window */
+window {
+  margin: 0px;
+  padding: 10px;
+  border: 2px solid @frost_0;
+  border-radius: 8px;
+  background-color: @polar_night_0;
+}
+
+/* Inner Box */
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: @polar_night_0;
+}
+
+/* Outer Box */
+#outer-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: @polar_night_0;
+}
+
+/* Scroll */
+#scroll {
+  margin: 0px;
+  padding: 10px;
+  border: none;
+  background-color: @polar_night_0;
+}
+
+/* Input */
+#input {
+  margin: 5px 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 0.1em;
+  color: @snow_storm_0;
+  background-color: @polar_night_1;
+}
+
+#input image {
+    border: none;
+    color: @frost_0;
+}
+
+#input * {
+  outline: 4px solid @frost_0;
+}
+
+/* Text */
+#text {
+  margin: 5px;
+  border: none;
+  color: @snow_storm_0;
+}
+
+#entry {
+  background-color: @polar_night_0;
+}
+
+#entry arrow {
+  border: none;
+  color: @frost_0;
+}
+
+/* Selected Entry */
+#entry:selected {
+  border: 0.11em solid @frost_0;
+  background-color: @polar_night_2;
+}
+
+#entry:selected #text {
+  color: @frost_1;
+}
+
+#entry:drop(active) {
+  background-color: @frost_0;
+}

@@ -1,0 +1,126 @@
+/*  Waybar Nord City config
+    Adapted from Nord theme for urban aesthetic. */
+
+* {
+    border: none;
+    border-radius: 10px;
+    font-family: "RecMonoLinear Nerd Font";
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
+
+/* Workspaces buttons config */
+
+#workspaces button {
+    color: #B48EAD;
+    margin-right: 5px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#workspaces button.active {
+    color: #8FBCBB;
+}
+
+#workspaces button:not(.active):not(.empty) {
+    color: #88C0D0;
+}
+
+#workspaces button.urgent {
+    color: #BF616A;
+}
+
+window#waybar {
+    background: #2E3440;
+    color: #D8DEE9;
+    border-radius: 12px;
+}
+
+/* General settings */
+
+#workspaces,
+#cpu,
+#memory,
+#pulseaudio,
+#disk,
+#clock,
+#tray,
+#custom-sep,
+#battery,
+#network,
+#custom-wallpaper,
+#custom-spotify,
+#window {
+    background: #3B4252;
+    border-radius: 12px;
+    margin: 3px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #E5E9F0;
+}
+
+/* Workspaces specific */
+
+#workspaces {
+    margin-left: 12px;
+    background: rgba(59, 66, 82, 0.8);
+}
+
+/* Clock specific */
+
+#clock {
+    margin-right: 12px;
+    background: rgba(143, 188, 187, 0.2);
+    color: #8FBCBB;
+}
+
+/* Battery specific */
+
+#battery {
+    background: rgba(163, 190, 140, 0.2);
+    color: #A3BE8C;
+}
+
+#battery.warning {
+    background: rgba(208, 135, 112, 0.2);
+    color: #D08770;
+}
+
+#battery.critical {
+    background: rgba(191, 97, 106, 0.2);
+    color: #BF616A;
+}
+
+/* Network specific */
+
+#network {
+    background: rgba(136, 192, 208, 0.2);
+    color: #88C0D0;
+}
+
+#network.disconnected {
+    background: rgba(191, 97, 106, 0.2);
+    color: #BF616A;
+}
+
+/* Audio specific */
+
+#pulseaudio {
+    background: rgba(180, 142, 173, 0.2);
+    color: #B48EAD;
+}
+
+#pulseaudio.muted {
+    background: rgba(76, 86, 106, 0.2);
+    color: #4C566A;
+}
+
+/* Window title */
+
+#window {
+    background: rgba(59, 66, 82, 0.6);
+    color: #81A1C1;
+}

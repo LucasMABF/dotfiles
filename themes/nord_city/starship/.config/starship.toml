@@ -1,0 +1,149 @@
+format = """
+[](#4C566A)\
+$os\
+$username\
+[](bg:#3B4252 fg:#4C566A)\
+$directory\
+[](fg:#3B4252 bg:#434C5E)\
+$git_branch\
+$git_status\
+[](fg:#434C5E bg:#8FBCBB)\
+$c\
+$rust\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:#8FBCBB bg:#81A1C1)\
+$docker_context\
+[](fg:#81A1C1 bg:#88C0D0)\
+$time\
+[ ](fg:#88C0D0)\
+$line_break$character"""
+
+command_timeout = 5000
+
+[character]
+disabled = false
+success_symbol = '[](bold #8FBCBB)'
+error_symbol = '[](bold #BF616A)'
+vimcmd_symbol = '[](bold #81A1C1)'
+vimcmd_replace_one_symbol = '[](bold #B48EAD)'
+vimcmd_replace_symbol = '[](bold #B48EAD)'
+vimcmd_visual_symbol = '[](bold #88C0D0)'
+
+[username]
+show_always = false
+style_user = "bg:#4C566A fg:#E5E9F0"
+style_root = "bg:#4C566A fg:#BF616A"
+format = '[ $user ]($style)'
+detect_env_vars = ['!TMUX']
+
+[directory]
+style = "bg:#3B4252 fg:#E5E9F0"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+
+[c]
+symbol = " "
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#81A1C1 fg:#2E3440"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = " "
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:#434C5E fg:#E5E9F0"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#434C5E fg:#D08770"
+format = '[$all_status$ahead_behind ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = " "
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ""
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#8FBCBB fg:#2E3440"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "fg:#2E3440 bg:#88C0D0"
+format = '[ $time ]($style)'
+
+[os]
+disabled = false
+style = "bg:#4C566A fg:#E5E9F0"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
