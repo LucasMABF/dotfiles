@@ -36,9 +36,8 @@ Custom config using [NvChad](https://nvchad.com/), with additional bindings and 
 - Set the theme in [chadrc.lua](nvim/.config/nvim/lua/chadrc.lua), or 
 run the `:Themes` command
 
-> **Note**: The `chadrc.lua` file is located in the themes directory because it is managed
-> by the repo's theme functionality.
-> It can be moved to the `nvim` folder if the theme functionality is not being used
+> **Note**: The `chadrc.lua` file is also located in the themes directory because it is managed
+> by the repo's theme functionality, check which one you are using before editing.
 
 ## Zsh
 
@@ -73,6 +72,8 @@ that contains the configuration.
 
 ![mojave floating](screenshots/mojave1.png)
 
+![cyber nord floating](screenshots/cyber_nord1.png)
+
 ---
     
 ## References
@@ -105,8 +106,10 @@ that contains the configuration.
 
 - [Spicetify comfy theme](https://github.com/Comfy-Themes/Spicetify/)
 
-- [Colloig gtk theme](https://github.com/vinceliuice/Colloid-gtk-theme)
+- [Colloig GTK theme](https://github.com/vinceliuice/Colloid-gtk-theme)
 
-- [NordArc gtk icons](https://github.com/robertovernina/NordArc)
+- [NordArc GTK icons](https://github.com/robertovernina/NordArc)
 
 - [gre0ut's dotfiles](https://github.com/grey0ut/dotfiles/)
+
+- [Tokyonight GTK theme](https://github.com/Fausto-Korpsvart/Tokyonight-GTK-Theme)

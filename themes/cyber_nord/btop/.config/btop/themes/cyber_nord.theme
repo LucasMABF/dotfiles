@@ -1,0 +1,67 @@
+theme[main_bg]="#0C1117"
+theme[main_fg]="#E2E2E2"
+theme[title]="#E2E2E2"
+
+theme[hi_fg]="#00D6FF"
+
+theme[selected_bg]="#1E222A"
+theme[selected_fg]="#00D6FF"
+
+theme[inactive_fg]="#545862"
+
+theme[graph_text]="#25C6E8"
+
+theme[meter_bg]="#121821"
+
+theme[proc_misc]="#61AFEF"
+
+# Box outlines (distinct but balanced)
+theme[cpu_box]="#25C6E8"
+theme[mem_box]="#98C379"
+theme[net_box]="#61AFEF"
+theme[proc_box]="#C678DD"
+
+theme[div_line]="#262C35"
+
+# Temperature (green -> yellow -> red)
+theme[temp_start]="#98C379"
+theme[temp_mid]="#FFD580"
+theme[temp_end]="#E06C75"
+
+# CPU graph (soft cyan -> blue -> magenta)
+theme[cpu_start]="#25C6E8"
+theme[cpu_mid]="#61AFEF"
+theme[cpu_end]="#C678DD"
+
+# Memory/Disk FREE (cool availability)
+theme[free_start]="#25C6E8"
+theme[free_mid]="#61AFEF"
+theme[free_end]="#C678DD"
+
+# Memory/Disk CACHED (cool -> magenta -> pinkish)
+theme[cached_start]="#25C6E8"
+theme[cached_mid]="#C678DD"
+theme[cached_end]="#D097EB"
+
+# Memory/Disk AVAILABLE (green -> cyan -> light cyan)
+theme[available_start]="#98C379"
+theme[available_mid]="#25C6E8"
+theme[available_end]="#00D6FF"
+
+# Memory/Disk USED (cyan -> magenta -> red)
+theme[used_start]="#25C6E8"
+theme[used_mid]="#C678DD"
+theme[used_end]="#E06C75"
+
+theme[download_start]="#25C6E8"
+theme[download_mid]="#61AFEF"
+theme[download_end]="#C678DD"
+
+theme[upload_start]="#25C6E8"
+theme[upload_mid]="#61AFEF"
+theme[upload_end]="#98C379"
+
+# Process gradient (cyan -> magenta -> red)
+theme[process_start]="#25C6E8"
+theme[process_mid]="#C678DD"
+theme[process_end]="#E06C75"
