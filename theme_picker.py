@@ -63,8 +63,10 @@ except FileNotFoundError:
     print("nwg-look command not found. GTK not updated.")
 
 try:
+    with open(Path.home() / ".config/hypr/hyprpaper.conf") as f:
+        wallpaper = f.readline().strip().split("/")[-1].strip()
     subprocess.run(["hyprctl", "hyprpaper", "reload", ", ",
-                   str(Path.home() / ".config/wallpapers" / f"{theme}.png")],
+                   str(Path.home() / ".config/wallpapers" / f"{wallpaper}")],
                    stdout=subprocess.DEVNULL)
 except FileNotFoundError:
     print("hyprctl hyprpaper command not found. Wallpaper not updated.")

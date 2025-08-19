@@ -1,0 +1,173 @@
+// Waybar Nord config by NelloKudo.
+// Made for Hyprland, might work on Sway after some messing, too.
+
+// -*- mode: jsonc -*-
+{   
+    // Position
+    "layer": "bottom",
+    "position": "top",
+    "height": 42,
+
+    // Margins
+    "margin-top": 10,
+    "margin-left": 15,
+    "margin-right": 15,
+
+    // Modules order
+    "modules-left": ["custom/spacer","custom/launcher","custom/spacer","custom/sep","cpu",
+                    "custom/sep","memory", "custom/media"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray","custom/sep","custom/weather","custom/sep","pulseaudio",
+                    "custom/sep", "battery", "clock",
+                    "custom/sep","custom/spacer","custom/powermenu","custom/spacer"],
+    
+    // Modules
+    
+    // Pac-Man inspired workspaces from: https://github.com/gh0stzk/dotfiles
+    // Please change persistent-workspaces according to your config.
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "sort-by-number": true,
+        "format-icons": {
+            "active": "󰮯",
+            "urgent": "󰑊",
+            "default": "󰊠",
+            "focused": "󰮯",
+            "empty": "󰑊"
+        },
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            // You can also set monitors like my setup:
+            // "eDP-1": [1, 2, 4, 5],
+            // "HDMI-A-1": [2, ]
+        }
+    },
+
+    // Simple CPU module:
+    "cpu": {
+        "format": "<span color='#bf616a'>󰍛</span> {usage}%",
+        "interval": 2
+    },
+
+    // Simple Memory module:
+    "memory": {
+        "interval": 3,
+        "format": "<span color='#b48ead'> </span> {used:0.1f}G"
+    },
+
+    // Simple Disk module:
+    "disk": {
+        "interval": 60,
+        "unit": "GB",
+        "path": "/home",
+        "format": "<span color='#ebcb8b'> </span> {free}"
+    },
+
+    // Minimal PulseAudio plugin:
+    // Needs: Wireplumber, Pavucontrol
+    "pulseaudio": {
+        "format": "<span color='#a3be8c'>{icon} </span>{volume}%",
+        "format-muted": "<span color='#f38ba8'>󰝟</span>",
+        "tooltip": false,
+        "on-click": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 10%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 10%-",
+        "format-icons": {
+          "headphone": "",
+          "headset": "󰋎",
+          "default": [
+              "",
+              "",
+              " "
+          ]
+        }
+    },
+
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 20
+      },
+      
+      "format": " <span color='#a3be8c'>{icon} </span>{capacity}% ◆ ",
+      "format-warning": " <span color='#ebcb8b'>{icon} </span>{capacity}% ◆ ",
+      "format-critical": " <span color='#bf616a'>{icon} </span>{capacity}% ◆ ",
+      "format-charging": " <span color='#a3be8c'>󰂄 </span>{capacity}% ◆ ",
+      "format-plugged": " <span color='#a3be8c'>󰂄 </span>{capacity}% ◆ ",
+      "format-alt": " <span color='#a3be8c'>{icon} </span> {time} ◆ ",
+      "format-full": "",
+      "format-icons": ["󰂃", "󰁼", "󰁿", "󰂁", "󰁹"],
+      "tooltip-format": "{time}"
+    },
+
+    // Simple Clock module:
+    "clock": {
+        "format": "<span color='#89b4fa'>󰥔  </span>{:%H:%M | %a %d %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+
+    // Simple Tray module:
+    "tray": {
+        "icon-size": 16,
+        "icon-theme": "Papirus",
+        "spacing": 2
+    },
+
+    // Just a simple spacer
+    "custom/spacer": {
+        "format": " ",
+        "tooltip": false
+    },
+
+    // Just a clean sep
+    "custom/sep": {
+        "format": "◆",
+        "tooltip": false
+    },
+
+    // Please change location to your own city!
+    "custom/weather": {
+        "format" : "{}°",
+        "exec": "wttrbar --nerd --location brasilia",
+        "restart-interval": 300,
+        "return-type": "json",
+    },
+
+    // Custom player module
+    // Depends on mediaplayer.py from Waybar's repo,
+    // bundled in dotfiles.
+    "custom/media": {
+        "format": "{icon} {text}",
+        "format-icons": {
+          "spotify": "◆  <span color='#a3be8c'> </span>",
+          "firefox": "◆  <span color='#bf616a'> </span>",
+          "default": "◆  \uf144"
+        },
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10,
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    },
+
+    // Custom launcher module
+    // Depends on rofi and uwsm-app.
+    "custom/launcher": {
+        "format": "󰣇",
+        "on-click": "rofi -show drun -run-command 'uwsm-app -- {cmd}'",
+        "tooltip": false
+    },
+
+    // Custom powermenu module
+    // Depends on rofi and custom power menu
+    "custom/powermenu": {
+        "format": "",
+        "on-click": "$HOME/.config/waybar/powermenu.sh 2> /dev/null",
+        "tooltip": false
+    }
+}
+

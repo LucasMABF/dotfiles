@@ -1,0 +1,112 @@
+{
+    "layer": "top",
+    "position": "top",
+
+    "height": 40,
+    "margin-top": 5,
+    "margin-left": 15,
+    "margin-right": 15,
+
+    "modules-left": ["custom/launcher", "clock", "custom/music"],
+    "modules-center": ["custom/notification", "hyprland/workspaces", "power-profiles-daemon"],
+    "modules-right": ["custom/pacman", "pulseaudio", "tray", "battery"],
+    "custom/launcher": {
+        "format": "󰣇",
+        "on-click": "rofi -show drun -run-command 'uwsm-app -- {cmd}'",
+        "tooltip": false
+    },
+    "hyprland/workspaces": {
+         "disable-scroll": true,
+         "sort-by-name": true,
+         "format": " {icon} ",
+         "tooltip": false,
+         "persistent-workspaces": {
+             "*": [1, 2]
+         }
+     },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 2
+    },
+    "custom/music": {
+        "format": "{icon} {text}",
+        "format-icons": {
+          "spotify": "<span color='#9ece6a'></span>",
+          "firefox": "<span color='#f7768e'></span>",
+          "default": ""
+        },
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10,
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    },
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "",
+        "dnd-notification": "",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "",
+        "dnd-inhibited-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power mode: {profile}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "󰠠",
+        "balanced": "󰚀",
+        "power-saver": "󰌪"
+      }
+    },
+    "custom/pacman": {
+      "format": " {}",
+      "interval": 300,
+      "exec": "checkupdates | wc -l",
+      "tooltip-format": "{} updates available"
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "󰥔 {:%H:%M | %a %d %b}"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 20
+        },
+        "format-full": "",
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄",
+        "format-plugged": "󰂄",
+        "tooltip-format": "{time}",
+        "format-icons": ["󰂃", "󰁼", "󰁿", "󰂁", "󰁹"],
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "headset": "󰋎",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+}

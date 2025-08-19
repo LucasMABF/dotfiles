@@ -102,7 +102,8 @@
 
     // Simple Clock module:
     "clock": {
-        "format": "<span color='#33c7ff'>󰥔  </span>{:%H:%M | %a %d %b}"
+        "format": "<span color='#33c7ff'>󰥔  </span>{:%H:%M | %a %d %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
 
     // Simple Tray module:
@@ -114,25 +115,22 @@
 
     // Just a simple spacer
     "custom/spacer": {
-        "format": " "
+        "format": " ",
+        "tooltip": false
     },
 
     // Just a clean sep
     "custom/sep": {
-        "format": "<span color='#5c6b80'>◆</span>"
+        "format": "<span color='#5c6b80'>◆</span>",
+        "tooltip": false
     },
     
-    // Custom weather module
-    // Depends on weather.py from: https://gist.github.com/Surendrajat/ff3876fd2166dd86fb71180f4e9342d7#file-weather-py
-    // Already bundled in dotfiles.
-    // Please change the script to your own city!
+    // Please change location to your own city!
     "custom/weather": {
-        "format" : "{0}",
-        "max-length": 5,
-        "exec": "$HOME/.config/waybar/weather.py 2> /dev/null",
+        "format" : "{}°",
+        "exec": "wttrbar --nerd --location brasilia",
         "restart-interval": 300,
         "return-type": "json",
-        "on-click": "$HOME/.config/waybar/weather.py -o 2> /dev/null"
     },
 
     // Custom player module
@@ -160,14 +158,16 @@
     // Depends on rofi and uwsm-app.
     "custom/launcher": {
         "format": "󰣇",
-        "on-click": "rofi -show drun -run-command 'uwsm-app -- {cmd}'"
+        "on-click": "rofi -show drun -run-command 'uwsm-app -- {cmd}'",
+        "tooltip": false
     },
 
     // Custom powermenu module
     // Depends on rofi and custom power menu
     "custom/powermenu": {
         "format": "",
-        "on-click": "$HOME/.config/waybar/powermenu.sh 2> /dev/null"
+        "on-click": "$HOME/.config/waybar/powermenu.sh 2> /dev/null",
+        "tooltip": false
     }
 }
 

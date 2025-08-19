@@ -1,0 +1,15 @@
+:root {
+  /* Tokyo Night Dark */
+  --bg: rgb(26, 27, 38);                 /* #1a1b26 */
+  --bg-opaque: rgba(26, 27, 38, 0.5);
+  --border: rgb(122, 162, 247);          /* #7aa2f7 */
+  --light: rgb(36, 40, 59);              /* #24283b */
+  --dark: rgb(41, 46, 66);               /* #292e42 */
+
+  --red: rgb(247, 118, 142);             /* #f7768e */
+  --red-hover: rgb(249, 145, 165);       /* ~lightened red */
+
+  --text: rgb(192, 202, 245);            /* #c0caf5 */
+  --disabled: rgb(154, 165, 206);        /* #9aa5ce */
+  --slider: rgb(65, 72, 104);            /* #414868 */
+}

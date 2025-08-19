@@ -1,0 +1,72 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+format = """
+[░▒▓](#16161e)\
+$os\
+$username\
+[](bg:#7aa2f7 fg:#16161e)\
+$directory\
+[](fg:#7aa2f7 bg:#24283b)\
+$git_branch\
+$git_status\
+[](fg:#24283b bg:#2b2e40)\
+$time\
+[ ](fg:#2b2e40)\
+\n$character"""
+
+[directory]
+style = "fg:#16161e bg:#7aa2f7"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#24283b fg:#7aa2f7"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#24283b fg:#7aa2f7"
+format = '[$all_status$ahead_behind ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#2b2e40 fg:#7aa2f7"
+format = '[  $time ]($style)'
+
+[os]
+disabled = false
+style = "bg:#16161e fg:#c0caf5"
+
+[os.symbols]
+Windows = " 󰍲"
+Ubuntu = " 󰕈"
+SUSE = " "
+Raspbian = " 󰐿"
+Mint = " 󰣭"
+Macos = " "
+Manjaro = " "
+Linux = " 󰌽"
+Gentoo = " 󰣨"
+Fedora = " 󰣛"
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " 󰣇"
+Artix = " 󰣇"
+CentOS = " "
+Debian = " 󰣚"
+Redhat = " 󱄛"
+RedHatEnterprise = " 󱄛"
+
+[username]
+show_always = true
+style_user = "bg:#16161e fg:#c0caf5"
+style_root = "bg:#16161e fg:#c0caf5"
+format = '[ $user ]($style)'

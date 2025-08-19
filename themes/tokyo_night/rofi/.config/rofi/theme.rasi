@@ -1,0 +1,20 @@
+* {
+  bg0     : #1a1b26;   // base
+  bg1     : #24283b;   // surface0
+  bg2     : #292e42;   // surface1
+  bg3     : #414868;   // surface2
+
+  fg0     : #c0caf5;   // text
+  fg1     : #a9b1d6;   // subtext1
+  fg2     : #9aa5ce;   // subtext0
+
+  red     : #f7768e;
+  green   : #9ece6a;
+  yellow  : #e0af68;
+  blue    : #7aa2f7;
+  magenta : #bb9af7;
+  cyan    : #7dcfff;
+
+  accent  : @red;
+  urgent  : @yellow;
+}

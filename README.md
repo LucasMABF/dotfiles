@@ -21,7 +21,7 @@ The config includes different desktop themes, which can be added, removed, or sw
 - To add a theme make a folder inside the [themes directory](themes/)
 - To switch themes, use the `theme_picker.py` script, or the keybind `SUPER SHIFT + T`.
 
-There are also themes for firefox in [firefox_colors/themes.md](firefox_colors/themes.md).
+There are also themes for firefox in [extra.md](extra.md).
 
 ## Neovim
 
@@ -42,6 +42,18 @@ run the `:Themes` command
 ## Zsh
 
 My Z-shell configuration using [Oh my zsh](https://ohmyz.sh/)
+
+--- 
+
+## Screenshots
+
+![Catppuccin tiling](screenshots/catppuccin2.png)
+
+![Nord floating](screenshots/mojave1.png)
+
+![Tokyo Night floating](screenshots/tokyo_night.png)
+
+![Cyber Nord floating](screenshots/cyber_nord1.png)
 
 ---
 ## instalation
@@ -66,13 +78,11 @@ that contains the configuration.
 
 > **note**: `--no-folding` can prevent some bugs, specially when using the theme_picker.
 
-## Screenshots
+### Extra observations
 
-![catppuccin tiling](screenshots/catppuccin2.png)
-
-![mojave floating](screenshots/mojave1.png)
-
-![cyber nord floating](screenshots/cyber_nord1.png)
+For other configurations, that can't be managed by this repo,
+and for additional information that doesn't fit in this README,
+please refer to [extra.md](extra.md)
 
 ---
     
@@ -113,3 +123,11 @@ that contains the configuration.
 - [gre0ut's dotfiles](https://github.com/grey0ut/dotfiles/)
 
 - [Tokyonight GTK theme](https://github.com/Fausto-Korpsvart/Tokyonight-GTK-Theme)
+
+- [sane1090x's setup](https://www.youtube.com/@sane1090x)
+
+- [rubyowo's dotfiles](https://github.com/rubyowo/dotfiles)
+
+- [Tokyonight.nvim repo](https://github.com/folke/tokyonight.nvim/blob/main/extras/discord/tokyonight_night.css)
+
+- [Tokyonight cava config](https://github.com/2nko/Cava-Tokyonight)
