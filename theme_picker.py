@@ -25,7 +25,8 @@ else:
     theme = themes[theme_option]
 
 theme_folder = Path.home() / f"dotfiles/themes/{theme}/"
-configs = [c.relative_to(theme_folder) for c in theme_folder.iterdir()]
+configs = [c.relative_to(theme_folder) for c in theme_folder.iterdir()
+           if c.is_dir()]
 
 for config in configs:
     if len(sys.argv) == 1:
@@ -37,39 +38,28 @@ for config in configs:
     for file in path.rglob("*"):
         if file.is_file():
             stow_location = Path.home() / file.relative_to(path)
-            try:
-                stow_location.unlink()
-            except FileNotFoundError:
-                continue
-
-    subprocess.run([
-        "stow",
-        "--no-folding",
-        "-d", str(Path.home() / f"dotfiles/themes/{theme}"),
-        config,
-        "-t", str(Path.home())
-    ])
+            subprocess.run(["ln", "-sfn", file, stow_location])
 
 
 try:
-    subprocess.run(["spicetify", "apply"], stdout=subprocess.DEVNULL)
-except FileNotFoundError:
-    print("spicetify command not found. Spotify not updated.")
-
-try:
-    subprocess.run(["nwg-look", "-a", "-x"], stdout=subprocess.DEVNULL)
-    subprocess.run(["pkill", "nautilus"], stdout=subprocess.DEVNULL)
-except FileNotFoundError:
-    print("nwg-look command not found. GTK not updated.")
-
-try:
-    with open(Path.home() / ".config/hypr/hyprpaper.conf") as f:
-        wallpaper = f.readline().strip().split("/")[-1].strip()
-    subprocess.run(["hyprctl", "hyprpaper", "reload", ", ",
-                   str(Path.home() / ".config/wallpapers" / f"{wallpaper}")],
+    with open(theme_folder / "wallpaper.txt") as f:
+        wallpaper = f.readline().strip()
+    subprocess.run(["swww", "img", "--transition-type", "any",
+                   str(Path.home() / "dotfiles/wallpapers" / f"{wallpaper}")],
                    stdout=subprocess.DEVNULL)
 except FileNotFoundError:
-    print("hyprctl hyprpaper command not found. Wallpaper not updated.")
+    print("swww command not found. Wallpaper not updated.")
+
+try:
+    subprocess.run(["pkill", "waybar"], stdout=subprocess.DEVNULL)
+    subprocess.Popen(["waybar"], stdout=subprocess.DEVNULL, env=os.environ)
+except FileNotFoundError:
+    print("waybar command not found. Waybar not updated.")
+
+try:
+    subprocess.run(["hyprctl", "reload"], stdout=subprocess.DEVNULL)
+except FileNotFoundError:
+    print("hyprctl reload command not found. Hyprland not updated.")
 
 try:
     env_file = Path.home() / ".config/uwsm/env-theme"
@@ -86,21 +76,21 @@ except FileNotFoundError:
     print("hyprctl setcursor command not found. Cursor not updated.")
 
 try:
-    subprocess.run(["hyprctl", "reload"], stdout=subprocess.DEVNULL)
+    subprocess.run(["nwg-look", "-a", "-x"], stdout=subprocess.DEVNULL)
+    subprocess.run(["pkill", "nautilus"], stdout=subprocess.DEVNULL)
 except FileNotFoundError:
-    print("hyprctl reload command not found. Hyprland not updated.")
-
-try:
-    subprocess.run(["pkill", "waybar"], stdout=subprocess.DEVNULL)
-    subprocess.Popen(["waybar"], stdout=subprocess.DEVNULL, env=os.environ)
-except FileNotFoundError:
-    print("waybar command not found. Waybar not updated.")
+    print("nwg-look command not found. GTK not updated.")
 
 try:
     subprocess.run(["pkill", "swaync"], stdout=subprocess.DEVNULL)
     subprocess.Popen(["swaync"], stdout=subprocess.DEVNULL)
 except FileNotFoundError:
     print("swaync command not found. Swaync not updated.")
+
+try:
+    subprocess.run(["spicetify", "apply"], stdout=subprocess.DEVNULL)
+except FileNotFoundError:
+    print("spicetify command not found. Spotify not updated.")
 
 try:
     subprocess.run(["nvim", "--headless", "-c",
