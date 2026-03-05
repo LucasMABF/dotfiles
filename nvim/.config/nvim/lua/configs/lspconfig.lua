@@ -26,19 +26,11 @@ local lua_lsp_settings = {
 local nvlsp = require "nvchad.configs.lspconfig"
 vim.lsp.config("*", { capabilities = nvlsp.capabilities, on_init = nvlsp.on_init })
 vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
-vim.lsp.enable "lua_ls"
+vim.lsp.config("vtsls", require("vtsls").lspconfig)
 
-local servers = { "html", "cssls", "ts_ls", "prismals", "eslint", "tailwindcss", "pylsp" } -- lua already setup and rust set up separetely
-
+local servers =
+  { "lua_ls", "html", "cssls", "ts_ls", "prismals", "eslint", "tailwindcss", "clangd", "pyright", "vtsls" } -- rust set up separetely
 vim.lsp.enable(servers)
-
--- clangd separately because of performance difference ???
-
-local lspconfig = require "lspconfig"
-lspconfig.clangd.setup {
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-}
 
 local x = vim.diagnostic.severity
 vim.diagnostic.config {

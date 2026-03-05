@@ -3,7 +3,10 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
+    vue = { "prettier" },
+    typescript = { "prettier" },
     cpp = { "clang-format" },
+    python = { "black" },
   },
 }
 
