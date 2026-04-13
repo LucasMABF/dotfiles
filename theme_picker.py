@@ -5,7 +5,6 @@ import subprocess
 import sys
 import os
 
-
 if len(sys.argv) > 1:
     theme = sys.argv[1]
 else:
@@ -25,8 +24,7 @@ else:
     theme = themes[theme_option]
 
 theme_folder = Path.home() / f"dotfiles/themes/{theme}/"
-configs = [c.relative_to(theme_folder) for c in theme_folder.iterdir()
-           if c.is_dir()]
+configs = [c.relative_to(theme_folder) for c in theme_folder.iterdir() if c.is_dir()]
 
 for config in configs:
     if len(sys.argv) == 1:
@@ -38,17 +36,25 @@ for config in configs:
     for file in path.rglob("*"):
         if file.is_file():
             stow_location = Path.home() / file.relative_to(path)
+            stow_location.parent.mkdir(parents=True, exist_ok=True)
             subprocess.run(["ln", "-sfn", file, stow_location])
 
 
 try:
     with open(theme_folder / "wallpaper.txt") as f:
         wallpaper = f.readline().strip()
-    subprocess.run(["swww", "img", "--transition-type", "any",
-                   str(Path.home() / "dotfiles/wallpapers" / f"{wallpaper}")],
-                   stdout=subprocess.DEVNULL)
+    subprocess.run(
+        [
+            "awww",
+            "img",
+            "--transition-type",
+            "any",
+            str(Path.home() / "dotfiles/wallpapers" / f"{wallpaper}"),
+        ],
+        stdout=subprocess.DEVNULL,
+    )
 except FileNotFoundError:
-    print("swww command not found. Wallpaper not updated.")
+    print("awww command not found. Wallpaper not updated.")
 
 try:
     subprocess.run(["pkill", "waybar"], stdout=subprocess.DEVNULL)
@@ -70,8 +76,10 @@ try:
             key, value = key_value.split("=", 1)
             cursor_settings.append(value.strip())
 
-    subprocess.run(["hyprctl", "setcursor", cursor_settings[0],
-                    cursor_settings[1]], stdout=subprocess.DEVNULL)
+    subprocess.run(
+        ["hyprctl", "setcursor", cursor_settings[0], cursor_settings[1]],
+        stdout=subprocess.DEVNULL,
+    )
 except FileNotFoundError:
     print("hyprctl setcursor command not found. Cursor not updated.")
 
@@ -93,8 +101,15 @@ except FileNotFoundError:
     print("spicetify command not found. Spotify not updated.")
 
 try:
-    subprocess.run(["nvim", "--headless", "-c",
-                    'lua require("base46").load_all_highlights()',
-                    "-c", "qa"])
+    subprocess.run(
+        [
+            "nvim",
+            "--headless",
+            "-c",
+            'lua require("base46").load_all_highlights()',
+            "-c",
+            "qa",
+        ]
+    )
 except FileNotFoundError:
     print("nvim command not found. Neovim not updated.")

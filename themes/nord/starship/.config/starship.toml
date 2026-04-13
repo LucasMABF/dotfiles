@@ -41,7 +41,7 @@ vimcmd_visual_symbol = '[](bold blue)'
 
 # You can also replace your username with a neat symbol like  to save some space
 [username]
-show_always = false
+show_always = true
 style_user = "bg:#4c566a"
 style_root = "bg:#4c566a"
 format = '[ $user ]($style)'
