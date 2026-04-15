@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import subprocess
+import glob
 import sys
 import os
 
@@ -96,9 +97,37 @@ except FileNotFoundError:
     print("swaync command not found. Swaync not updated.")
 
 try:
-    subprocess.run(["spicetify", "apply"], stdout=subprocess.DEVNULL)
+    spotify_running = (
+        subprocess.run(["pgrep", "-x", "spotify"], capture_output=True).returncode == 0
+    )
+    if spotify_running:
+        subprocess.run(["spicetify", "apply"], stdout=subprocess.DEVNULL)
+    else:
+        subprocess.run(["spicetify", "apply", "-n"], stdout=subprocess.DEVNULL)
 except FileNotFoundError:
     print("spicetify command not found. Spotify not updated.")
+
+runtime_dir = os.environ.get("XDG_RUNTIME_DIR", f"/run/user/{os.getuid()}")
+sockets = (
+    glob.glob(f"{runtime_dir}/nvim-*.sock")
+    + glob.glob(f"{runtime_dir}/nvim.*/0")
+    + glob.glob(f"/tmp/nvim*.sock")
+)
+for socket in sockets:
+    try:
+        subprocess.run(
+            [
+                "nvim",
+                "--server",
+                socket,
+                "--remote-send",
+                '<CMD>lua package.loaded["nvconfig"] = nil; package.loaded["chadrc"] = nil; require("base46").load_all_highlights()<CR> ',
+            ],
+            timeout=3,
+        )
+        print(socket)
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        pass
 
 try:
     subprocess.run(
@@ -113,3 +142,5 @@ try:
     )
 except FileNotFoundError:
     print("nvim command not found. Neovim not updated.")
+
+subprocess.run(["pkill", "-USR1", "kitty"])

@@ -1,6 +1,15 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 
+vim.fn.serverstart(vim.fn.stdpath "run" .. "/nvim-" .. vim.fn.getpid() .. ".sock")
+
+vim.api.nvim_create_autocmd("VimLeave", {
+  callback = function()
+    local socket = vim.fn.stdpath "run" .. "/nvim-" .. vim.fn.getpid() .. ".sock"
+    vim.fn.delete(socket)
+  end,
+})
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
