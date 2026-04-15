@@ -9,9 +9,9 @@
 
     "modules-left": ["custom/launcher", "clock", "custom/music"],
     "modules-center": ["custom/notification", "hyprland/workspaces", "power-profiles-daemon"],
-    "modules-right": ["custom/pacman", "pulseaudio", "tray", "battery"],
+    "modules-right": ["pulseaudio", "tray", "battery"],
     "custom/launcher": {
-        "format": "󰣇",
+        "format": "",
         "on-click": "rofi -show drun -run-command 'uwsm-app -- {cmd}'",
         "tooltip": false
     },

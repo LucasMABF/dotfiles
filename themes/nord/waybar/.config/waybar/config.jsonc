@@ -157,7 +157,7 @@
     // Custom launcher module
     // Depends on rofi and uwsm-app.
     "custom/launcher": {
-        "format": "󰣇",
+        "format": "",
         "on-click": "rofi -show drun -run-command 'uwsm-app -- {cmd}'",
         "tooltip": false
     },

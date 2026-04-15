@@ -2,7 +2,7 @@
 gtk-theme=Colloid-Dark-Nord
 icon-theme=nord_arc
 font-name=Cantarell 11
-cursor-theme=catppuccin-mocha-dark-cursors
+cursor-theme=Nordzy-cursors
 cursor-size=28
 toolbar-style=both-horiz
 toolbar-icons-size=large
