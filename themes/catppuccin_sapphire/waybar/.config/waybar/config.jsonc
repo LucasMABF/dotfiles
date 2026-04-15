@@ -10,7 +10,7 @@
     "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "pulseaudio", "backlight", "battery", "clock", "custom/lock", "custom/power"],
     "custom/launcher": {
-        "format": "󰣇",
+        "format": "",
         "on-click": "rofi -show drun -run-command 'uwsm-app -- {cmd}'"
     },
     "hyprland/workspaces": {
