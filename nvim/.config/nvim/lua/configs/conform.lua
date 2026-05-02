@@ -7,6 +7,7 @@ local options = {
     typescript = { "prettier" },
     cpp = { "clang-format" },
     python = { "black" },
+    nix = { "nixfmt" },
   },
 }
 

@@ -69,6 +69,7 @@ source $ZSH/oh-my-zsh.sh
 
 path+=('/snap/bin')
 path+=('/home/lucas/.cargo/bin/')
+path+=('/home/lucas/.local/bin')
 
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"

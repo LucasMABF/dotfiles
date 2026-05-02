@@ -17,7 +17,7 @@ $kotlin\
 $haskell\
 $python\
 [](fg:#25C6E8 bg:#00D6FF)\
-$docker_context\
+$nix_shell\
 [](fg:#00D6FF bg:#61AFEF)\
 $time\
 [ ](fg:#61AFEF)\
@@ -128,13 +128,15 @@ symbol = ""
 style = "bg:#25C6E8 fg:#0C1117"
 format = "[ $symbol($version) ]($style)"
 
-[docker_context]
-symbol = " "
-style = "bg:#00D6FF fg:#0C1117"
-format = "[ $symbol $context ]($style)"
-
 [time]
 disabled = false
 time_format = "%R"
 style = "bg:#61AFEF fg:#0C1117"
 format = "[ $time ]($style)"
+
+[nix_shell]
+disabled = false
+symbol = "󱄅"
+heuristic = true
+format = "[ $symbol ]($style)"
+style = "bg:#00d6ff fg:#0b1020"

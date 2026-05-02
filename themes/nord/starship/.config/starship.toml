@@ -17,7 +17,7 @@ $kotlin\
 $haskell\
 $python\
 [](fg:#88c0d0 bg:#5e81ac)\
-$docker_context\
+$nix_shell\
 [](fg:#5e81ac bg:#88c0d0)\
 $time\
 [ ](fg:#88c0d0)\
@@ -71,11 +71,6 @@ truncation_symbol = "…/"
 symbol = " "
 style = "bg:#86BBD8 fg:#434C5E"
 format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style) $path'
 
 [elixir]
 symbol = " "
@@ -161,3 +156,10 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
+
+[nix_shell]
+disabled = false
+symbol = "󱄅"
+heuristic = true
+format = "[ $symbol ]($style)"
+style = "bg:#5e81ac fg:#eceff4"

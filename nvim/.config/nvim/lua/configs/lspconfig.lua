@@ -28,8 +28,20 @@ vim.lsp.config("*", { capabilities = nvlsp.capabilities, on_init = nvlsp.on_init
 vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
 vim.lsp.config("vtsls", require("vtsls").lspconfig)
 
-local servers =
-  { "lua_ls", "html", "cssls", "ts_ls", "prismals", "eslint", "tailwindcss", "clangd", "pyright", "vtsls", "jsonls" } -- rust set up separetely
+local servers = {
+  "lua_ls",
+  "html",
+  "cssls",
+  "ts_ls",
+  "prismals",
+  "eslint",
+  "tailwindcss",
+  "clangd",
+  "pyright",
+  "vtsls",
+  "jsonls",
+  "nil_ls",
+} -- rust set up separetely
 vim.lsp.enable(servers)
 
 local x = vim.diagnostic.severity

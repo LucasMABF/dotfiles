@@ -5,12 +5,14 @@ $os\
 $username\
 [](bg:#7aa2f7 fg:#16161e)\
 $directory\
-[](fg:#7aa2f7 bg:#24283b)\
+[](fg:#7aa2f7 bg:#1f2335)\
 $git_branch\
 $git_status\
-[](fg:#24283b bg:#2b2e40)\
+[](fg:#1f2335 bg:#24283b)\
+$nix_shell\
+[](fg:#24283b bg:#2b2f40)\
 $time\
-[ ](fg:#2b2e40)\
+[ ](fg:#2b2f40)\
 \n$character"""
 
 [directory]
@@ -27,17 +29,17 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:#24283b fg:#7aa2f7"
+style = "bg:#1f2335 fg:#7aa2f7"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#24283b fg:#7aa2f7"
+style = "bg:#1f2335 fg:#7aa2f7"
 format = '[$all_status$ahead_behind ]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#2b2e40 fg:#7aa2f7"
+style = "bg:#2b2f40 fg:#7aa2f7"
 format = '[  $time ]($style)'
 
 [os]
@@ -70,3 +72,10 @@ show_always = true
 style_user = "bg:#16161e fg:#c0caf5"
 style_root = "bg:#16161e fg:#c0caf5"
 format = '[ $user ]($style)'
+
+[nix_shell]
+disabled = false
+symbol = "󱄅"
+heuristic = true
+format = "[ $symbol ]($style)"
+style = "bg:#24283b fg:#c0caf5"
