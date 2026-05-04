@@ -4,7 +4,7 @@
 * {
     border: none;
     border-radius: 10px;
-    font-family: "RecMonoLinear Nerd Font";
+    font-family: "RecMonoLinear Nerd Font Propo";
     font-weight: bold;
     font-size: 14px;
     min-height: 0;
@@ -127,7 +127,7 @@ window#waybar {
 {
     color:#f0ffff;
     background: #81a1c1;
-    padding-right: 15px;
+    padding-right: 10px;
     font-size: 17px;
     padding-left: 12px;
     border-radius: 5px;
@@ -139,7 +139,7 @@ window#waybar {
 {
     color:#f0ffff;
     background: #81a1c1;
-    padding-right: 17px;
+    padding-right: 12px;
     font-size: 14px;
     padding-left: 12px;
     border-radius: 5px;

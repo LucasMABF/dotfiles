@@ -40,7 +40,7 @@ local servers = {
   "pyright",
   "vtsls",
   "jsonls",
-  "nil_ls",
+  "nixd",
 } -- rust set up separetely
 vim.lsp.enable(servers)
 

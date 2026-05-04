@@ -59,9 +59,10 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
+NixOS = " "
 
 [username]
-show_always = false
+show_always = true
 style_user = "bg:#121821 fg:#E2E2E2"
 style_root = "bg:#121821 fg:#C678DD"
 format = "[ $user ]($style)"
@@ -137,6 +138,5 @@ format = "[ $time ]($style)"
 [nix_shell]
 disabled = false
 symbol = "󱄅"
-heuristic = true
 format = "[ $symbol ]($style)"
 style = "bg:#00d6ff fg:#0b1020"
