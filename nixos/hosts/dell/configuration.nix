@@ -1,16 +1,20 @@
-{ config, ... }:
+{ ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ../../modules/common.nix
-    ../../modules/nvidia.nix
     ../../modules/hyprland.nix
     ../../modules/kanata.nix
   ];
 
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
-  hardware.nvidia.open = false;
+  boot.kernelModules = [ "nouveau" ];
+  services.xserver.videoDrivers = [ "modesetting" ];
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   networking.hostName = "Lucas-Dell";
 

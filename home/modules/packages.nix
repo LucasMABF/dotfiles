@@ -19,7 +19,7 @@ in
     adwaita-modified
     awww
     btop
-    catppuccin-cursors
+    catppuccin-cursors.mochaDark
     catppuccin-gtk-theme
     cava
     claude-code

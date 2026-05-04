@@ -1,0 +1,69 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(deflocalkeys-linux
+  ´ 26
+  [ 27
+  ç 39
+  ~ 40
+  ' 41
+  ] 43
+  ; 53
+  \ 86
+  / 89
+)
+
+(defsrc
+  '    1 2 3 4 5 6 7 8 9 0 - = bspc
+  tab  q w e r t y u i o p ´ [
+  caps a s d f g h j k l ç ~ ] ret
+  lsft \ z x c v b n m , . ; / rsft
+  lctl lmet lalt  spc  ralt rmet rctl
+)
+
+(defvar
+  tap-repress-timeout 200
+  hold-timeout 200
+  tt $tap-repress-timeout
+  th $hold-timeout
+)
+
+(defalias
+  rsuper (tap-hold $tt $th m rmet)
+  lsuper (tap-hold $tt $th v lmet)
+  rctl (tap-hold $tt $th , rctl)
+  lctl (tap-hold $tt $th c lctl)
+  rnums (tap-hold $tt $th . (layer-while-held nums))
+  lnums (tap-hold $tt $th x (layer-while-held nums))
+  mnums (tap-hold $tt $th spc (layer-while-held nums))
+  nums (layer-while-held nums)
+  lsft (tap-hold $tt $th tab lsft)
+  rsft (tap-hold $tt $th ' lsft)
+  accents (tap-hold $tt $th r (layer-while-held accents))
+)
+
+(deflayer base
+  XX    XX   XX       XX     XX       XX      XX   XX    XX      XX    XX     XX    XX   XX
+  esc   q    w        e      @accents t       y    u     i       o     p      bspc  XX
+  @lsft a    s        d      f        g       h    j     k       l     ;      @rsft XX   ret
+  lsft  \    z        @lnums @lctl    @lsuper b    n     @rsuper @rctl @rnums /     XX   rsft
+  XX    XX   @accents           @mnums             @nums XX      XX
+)
+
+(deflayer nums
+  XX    XX   XX   XX   XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
+  esc   S-1  S-2  S-3  S-4  S-5  S-/  S-7  S-8  S-9   S-0  bspc XX
+  @lsft 1    2    3    4    5    6    7    8    9     0    /    XX   ret
+  lsft  lsft -    S-=  =    S--  S-\  [    ]    S-[   S-]  rsft XX   rsft
+  XX    XX   XX              spc                @nums XX   XX
+)
+
+(deflayer accents
+  XX XX XX XX XX XX XX XX  XX XX XX  XX XX XX
+  XX XX XX XX XX XX XX S-´ XX XX XX  ´  XX
+  XX XX XX XX XX XX XX S-~ XX XX ç   ~ XX XX
+  XX XX XX XX XX XX XX XX  XX XX XX  XX XX XX
+  XX XX XX XX          XX            XX XX
+)
+
