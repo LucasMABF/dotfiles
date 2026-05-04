@@ -138,6 +138,5 @@ format = "[ $time ]($style)"
 [nix_shell]
 disabled = false
 symbol = "󱄅"
-heuristic = true
 format = "[ $symbol ]($style)"
 style = "bg:#00d6ff fg:#0b1020"

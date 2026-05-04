@@ -77,6 +77,5 @@ format = '[ $user ]($style)'
 [nix_shell]
 disabled = false
 symbol = "󱄅"
-heuristic = true
 format = "[ $symbol ]($style)"
 style = "bg:#24283b fg:#c0caf5"

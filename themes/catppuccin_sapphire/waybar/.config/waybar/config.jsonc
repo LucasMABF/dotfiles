@@ -10,13 +10,15 @@
     "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "pulseaudio", "backlight", "battery", "clock", "custom/lock", "custom/power"],
     "custom/launcher": {
-        "format": "",
+        "exec": "$HOME/dotfiles/scripts/distro.sh",
+        "interval": "once",
+        "format": "{}",
         "on-click": "rofi -show drun -run-command 'uwsm-app -- {cmd}'"
     },
     "hyprland/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
-         "format": " {icon} ",
+         "format": " {icon} "
      },
     "tray": {
         "icon-size": 21,
@@ -37,7 +39,7 @@
         "smooth-scrolling-threshold": 10,
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous",
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+        "exec": "$HOME/dotfiles/scripts/mediaplayer.py 2> /dev/null"
     },
     "hyprland/window": {
         "max-length": 40
@@ -63,7 +65,7 @@
         "format-plugged": "󰂄",
         "format-alt": "{icon} {capacity}%",
         "tooltip-format": "{time}",
-        "format-icons": ["󰂃", "󰁼", "󰁿", "󰂁", "󰁹"],
+        "format-icons": ["󰂃", "󰁼", "󰁿", "󰂁", "󰁹"]
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -79,11 +81,11 @@
     "custom/lock": {
         "tooltip": false,
         "on-click": "uwsm-app -- hyprlock",
-        "format": "",
+        "format": ""
     },
     "custom/power": {
         "tooltip": false,
         "format": "",
-        "on-click": "$HOME/.config/waybar/powermenu.sh 2> /dev/null"
+        "on-click": "$HOME/dotfiles/scripts/powermenu.sh 2> /dev/null"
     }
 }
