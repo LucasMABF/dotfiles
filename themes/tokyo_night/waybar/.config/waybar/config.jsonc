@@ -9,7 +9,7 @@
 
     "modules-left": ["custom/launcher", "clock", "custom/music"],
     "modules-center": ["custom/notification", "hyprland/workspaces", "power-profiles-daemon"],
-    "modules-right": ["pulseaudio", "tray", "battery"],
+    "modules-right": ["custom/pacman", "pulseaudio", "tray", "battery"],
     "custom/launcher": {
         "exec": "$HOME/dotfiles/scripts/distro.sh",
         "interval": "once",
@@ -81,7 +81,7 @@
     "custom/pacman": {
       "format": " {}",
       "interval": 300,
-      "exec": "checkupdates | wc -l",
+      "exec": "command -v checkupdates > /dev/null && checkupdates | wc -l",
       "tooltip-format": "{} updates available"
     },
     "clock": {
